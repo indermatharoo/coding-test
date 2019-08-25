@@ -1,3 +1,0 @@
-.applicants:not(:empty) ~ .applicants:not(:empty):before {
-    content: ", ";
-  }

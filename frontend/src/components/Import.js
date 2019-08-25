@@ -64,7 +64,9 @@ export default class Import extends Component {
         .then((data) => {
 
         })
-        .catch(console.log)
+        .catch(function(error){
+            console.log(error);
+        })
         ;
     }
     

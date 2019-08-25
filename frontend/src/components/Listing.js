@@ -33,7 +33,9 @@ export default class Listing extends Component {
                 jobs     : data
             });    
         })
-        .catch(console.log)
+        .catch(function(error){
+            console.log(error);
+        })
         ;        
     }
 

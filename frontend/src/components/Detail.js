@@ -36,7 +36,9 @@ export default class Detail extends Component {
                 job      : data.data
             });
         })
-        .catch(console.log)
+        .catch(function(error) {
+            console.log(error);
+        })
         ;        
     }
 
