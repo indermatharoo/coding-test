@@ -26,7 +26,7 @@ export default class Import extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        if(this.fileInput.current.files.length == 0) {
+        if(this.fileInput.current.files.length === 0) {
             alert('Please select a Csv file first.');
             return;
         }
@@ -34,7 +34,7 @@ export default class Import extends Component {
         const fileExt = /[^.]+$/.exec(this.fileInput.current.files[0].name);
 
         // 0 index is considered because user can select only one file.
-        if(fileExt[0] != 'csv') {
+        if(fileExt[0] !== 'csv') {
             alert('Please make sure you are uploading a valid file(CSV).');
             return;
         }
