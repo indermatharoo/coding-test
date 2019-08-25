@@ -9,16 +9,18 @@ use App\Applicant;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Inserting dummy data for testing purpose.
      *
      * @return void
      */
     public function run()
     {   
+        // Create Location
         $location = new Location();
         $location->name = 'Brisbane';
         $location->save();
 
+        // Create Location
         $job = new Job();
         $job->title       =  'The dream job';
         $job->description =  'The dream job';
@@ -26,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $job->location_id =  $location->id;
         $job->save();
 
+        // Create Applicant
         $applicant = new Applicant();
         $applicant->name = 'Best Employee';
         $applicant->save();
