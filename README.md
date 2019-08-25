@@ -5,6 +5,22 @@ Front-end React application that allows users to list, view and import jobs into
 ## Prerequisites
 - Docker
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your
+local machine for development and testing purposes.
+
+#### Environment Variables
+The following environment variables need to be set up on the system.
+
+```Config.js
+global.apiUrl - set api url here(default value is already assigned).
+```
+```.env
+API_URL - set api url here(default value is already assigned).
+```
+
+
 ## Setup
 * Install [Docker](https://docs.docker.com/get-started/)
 * Build: `docker-compose build`
