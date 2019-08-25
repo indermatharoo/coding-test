@@ -18,15 +18,9 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
-    // $router->post('/jobs', function () use ($router) {
-    //     dd(123123);
-        // dd($_FILES);
-    // });
-    // $router->post('/jobs','JobsController@import');
     $router->post('/jobs','JobsController@import');
-    $router->get('/jobs','JobsController@import');
 
-    // $router->get('/jobs','JobsController@get');
+    $router->get('/jobs','JobsController@get');
     $router->get('/jobs/{id}','JobsController@detail');
 
     $router->get('/test','JobsController@test');

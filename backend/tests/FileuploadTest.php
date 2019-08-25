@@ -24,8 +24,11 @@ class FileuploadTest extends TestCase
                 'error' => 0
             ]
         ];
+        $test = UploadedFile::fake()->image('image.jpg');
         $url = env('API_URL') . 'api/v1/jobs';
-        $this->call('POST', $url, [
+        $this->json('POST', $url, [
+            'file' => UploadedFile::fake()->image('image.jpg'),
+            'file' => UploadedFile::fake()->image('image.jpg'),
             'file' => UploadedFile::fake()->image('image.jpg')
         ])
         ->assertResponseOk()

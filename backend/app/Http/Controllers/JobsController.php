@@ -60,7 +60,8 @@ class JobsController extends Controller
     public function import(Request $request) 
     {
         // print_r($_FILES);
-        // exit;
+        print_r($request->file('file'));
+        exit;
         // dd($request->file('file'));
         // $validator = Validator::make($request->all(), [
         //     'file' => 'required|file|max:2048',
