@@ -25,7 +25,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "8000:80"
+      - "8001:80"
     volumes:
       - ./backend/:/var/www
       - ./backend/docker/nginx/conf.d/:/etc/nginx/conf.d/
@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_DATABASE: lumen
       MYSQL_ROOT_PASSWORD: your_mysql_root_password
@@ -60,7 +60,7 @@ services:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
     ports:
-      - 80:3000
+      - 8002:3000
     volumes:
       - ./frontend:/var/www
       - '/var/www/node_modules'

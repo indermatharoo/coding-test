@@ -23,9 +23,9 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
-// $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,13 @@ $app = new Laravel\Lumen\Application(
 | your own bindings here if you like or you can make another file.
 |
 */
+
+$app->singleton(
+    Illuminate\Contracts\Filesystem\Factory::class,
+    function ($app) {
+        return new Illuminate\Filesystem\FilesystemManager($app);
+    }
+);
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
