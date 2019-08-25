@@ -8,5 +8,5 @@
   * e.g. `docker-compose exec coding-challenge-backend php artisan migrate`
 
 ## Development
-* React frontend: http://localhost
-* Lumen backend: http://localhost:8000
+* React frontend: http://localhost:8002
+* Lumen backend: http://localhost:8001
