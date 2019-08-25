@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 
-import './css/Listing.css';
+import './scss/Listing.scss';
 
 /**
  * Component is responsible for jobs listing.

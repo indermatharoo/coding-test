@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
 
-import './css/Detail.css';
+import './scss/Detail.scss';
 
 /**
  * Component is responsible for display detail of the selected job.
