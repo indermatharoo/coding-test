@@ -59,15 +59,15 @@ class JobsController extends Controller
     */
     public function import(Request $request) 
     {
-        print_r($_FILES);
-        exit;
-        dd($request->file('file'));
-        $validator = Validator::make($request->all(), [
-            'file' => 'required|file|max:2048',
-        ]);
-        $validator->fails();
-        print_r($validator->errors()->all());
-        exit;
+        // print_r($_FILES);
+        // exit;
+        // dd($request->file('file'));
+        // $validator = Validator::make($request->all(), [
+        //     'file' => 'required|file|max:2048',
+        // ]);
+        // $validator->fails();
+        // print_r($validator->errors()->all());
+        // exit;
         // validating request.
         $this->validate($request, [
             'file' => 'required|file|max:2048',
@@ -76,9 +76,9 @@ class JobsController extends Controller
             //         $fail('The file should be in csv format.');
             // }]
         ]);
-        print_r($_FILES);
+        // print_r($_FILES);
         // print_r('$_POST');
-        exit;
+        // exit;
         $response = ['status' => true,'message'=>'Data imported successfully.'];
         $fileName = time().$request->file('file')->getClientOriginalName();
         $request->file('file')->move(storage_path('import'),$fileName);
