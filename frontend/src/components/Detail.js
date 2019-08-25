@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import './css/Detail.css';
 
-class Detail extends Component {
+/**
+ * Component is responsible for display detail of the selected job.
+ */
+export default class Detail extends Component {
 
+    /**
+    * constructor function.
+    *
+    * @param {object} props
+    * @return void
+    */
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: false,
             job      : {},
         };
     }
 
+    /**
+    * Fetch job detail via http get request then assign the response to state variables.
+    *
+    * @return void
+    */
     componentDidMount() {
         const jobId = this.props.match.params.id;
         const url = global.apiUrl + 'api/v1/jobs/' + jobId;
@@ -18,15 +31,18 @@ class Detail extends Component {
         .then(res => res.json())
         .then((data) => {
             this.setState({
-                isLoading: false,
                 job      : data.data
             });
-            // console.log(this.state.job.applicants);
         })
         .catch(console.log)
         ;        
     }
 
+    /**
+    * Return the component view.
+    *
+    * @return JSX
+    */
     render() {
         return(
 
@@ -81,14 +97,4 @@ class Detail extends Component {
             </div>
         )
     }
-
-    clearState() {
-        this.setState({
-            isLoading: false,
-            jobs     : []
-        });
-    }
-
 }
-
-export default Detail;

@@ -3,12 +3,20 @@ import { Route } from 'react-router-dom';
 
 import './css/Listing.css';
 
-class Listing extends Component {
+/**
+ * Component is responsible for jobs listing.
+ */
+export default class Listing extends Component {
 
+    /**
+    * constructor function.
+    *
+    * @param {object} props
+    * @return void
+    */
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: false,
             jobs     : []
         };
         this.getListing();
@@ -17,12 +25,10 @@ class Listing extends Component {
 
     getListing() {
         const url = global.apiUrl + 'api/v1/jobs';
-        // this.setState({isLoading:true});
         fetch(url)
         .then(res => res.json())
         .then((data) => {
             this.setState({
-                isLoading: false,
                 jobs     : data
             });    
         })
@@ -30,6 +36,11 @@ class Listing extends Component {
         ;        
     }
 
+    /**
+    * Return the component view.
+    *
+    * @return JSX
+    */
     render() {
         return(
         <table className="table">
@@ -50,6 +61,7 @@ class Listing extends Component {
                     <td>{item.location.name}</td>
                     <td>{item.date}</td>
                     <td>
+                    {/* routes configuration */}
                     <Route render={({history}) => (
                         <button className="btn" type="button" onClick={() => { history.push('/detail/'+item.id)}}>
                             More Info
@@ -64,13 +76,4 @@ class Listing extends Component {
         );
     }
 
-    clearState() {
-        this.setState({
-            isLoading: false,
-            jobs     : []
-        });
-    }
-
 }
-
-export default Listing;

@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 
-class Import extends Component {
+/**
+ * Component is responsible to import jobs into the system.
+ */
+export default class Import extends Component {
 
+    /**
+    * constructor function.
+    *
+    * @param {object} props
+    * @return void
+    */
     constructor(props){
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.fileInput = React.createRef();
     }
 
+    /**
+    * handle form submit event.
+    * 
+    * @param {object} event
+    * @return void
+    */
     handleSubmit(event) {
-
         event.preventDefault();
 
         if(this.fileInput.current.files.length == 0) {
@@ -19,6 +33,7 @@ class Import extends Component {
 
         const fileExt = /[^.]+$/.exec(this.fileInput.current.files[0].name);
 
+        // 0 index is considered because user can select only one file.
         if(fileExt[0] != 'csv') {
             alert('Please make sure you are uploading a valid file(CSV).');
             return;
@@ -27,10 +42,16 @@ class Import extends Component {
         this.importFile();
     }
     
+    /**
+    * Import data into the system.
+    *
+    * @return void
+    */
     importFile() {
         const url = global.apiUrl + 'api/v1/jobs';
         var data = new FormData();
 
+        // 0 index is considered because user can select only one file.
         data.append('file', this.fileInput.current.files[0]);
 
         fetch(url,{
@@ -45,6 +66,11 @@ class Import extends Component {
         ;
     }
     
+    /**
+    * Return the component view.
+    *
+    * @return JSX
+    */
     render() {
         return(
             <div>
@@ -67,5 +93,3 @@ class Import extends Component {
     }
 
 }
-
-export default Import;

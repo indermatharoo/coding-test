@@ -1,1 +1,1 @@
-global.apiUrl = 'http://localhost:8001/';
+global.apiUrl = 'http://localhost:8001/'; // api base path

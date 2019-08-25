@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import './App.css';
-import './Config';
+import './Config';  // load global variables.
 
+// load components 
 import Import from './components/Import';
 import Listing from './components/Listing';
 import Detail from './components/Detail';
@@ -11,6 +11,7 @@ import Detail from './components/Detail';
 class App extends Component {
   render() {
     return (
+      // routes configuration
       <Router>
         <h3 className="text-muted">Coding Chanllenge</h3>
         <nav>
