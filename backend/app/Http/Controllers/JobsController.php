@@ -22,6 +22,7 @@ class JobsController extends Controller
     {
         $response = ['status' => false, 'data' => []];
 
+        // selectRaw function has need used to alter date format.`
         $job = Job::selectRaw('id,title,description,DATE_FORMAT(date,"%d-%m-%Y") date,location_id')->find($id);
 
         // if no job has been found default response will be returned.

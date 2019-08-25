@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Button, Form } from 'semantic-ui-react'
+
 /**
  * Component is responsible to import jobs into the system.
  */
@@ -76,18 +78,14 @@ export default class Import extends Component {
             <div>
                 <h1>Import Jobs</h1>
                 <hr/>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Field>
                         <label>Select Csv File</label>
                         <input ref={this.fileInput} type="file" className="form-control"/>
-                    </div>
+                    </Form.Field>
 
-                    <div className="form-group">
-                        <button className="btn button" type="submit">Submit</button>
-                    </div>
-
-                </form>
-
+                    <Button type='submit'>Submit</Button>
+                </Form>
             </div>
         );
     }

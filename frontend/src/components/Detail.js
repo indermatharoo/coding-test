@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Table } from 'semantic-ui-react';
+
 import './css/Detail.css';
 
 /**
@@ -46,55 +48,50 @@ export default class Detail extends Component {
     render() {
         return(
 
-            <div className="panel panel-default">
-            <div className="panel-heading">Job Detail </div>
+            <Table celled>
 
-                <table className="table">
-                    <tbody>
-                        <tr>
-                            <td>Title</td>
-                            <td>
-                                {this.state.job.title}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Description</td>
-                            <td>
-                                {this.state.job.description}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Location</td>
-                            <td>
-                                { typeof this.state.job.location == 'undefined' ? '' : this.state.job.location.name }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Date</td>
-                            <td>
-                                {this.state.job.date}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Applicants</td>
-                            <td>
-                                { typeof this.state.job.applicants == 'undefined' ? (
-                                    <div>1</div>
+                <Table.Body>
+                    <Table.Row>
+                        <Table.Cell>Title</Table.Cell>
+                        <Table.Cell>{this.state.job.title}</Table.Cell>
+                    </Table.Row>
+
+                    <Table.Row>
+                        <Table.Cell>Description</Table.Cell>
+                        <Table.Cell>{this.state.job.description}</Table.Cell>
+                    </Table.Row>
+
+                    <Table.Row>
+                        <Table.Cell>Location</Table.Cell>
+                        <Table.Cell>{ typeof this.state.job.location == 'undefined' ? '' : this.state.job.location.name }</Table.Cell>
+                    </Table.Row>
+
+                    <Table.Row>
+                        <Table.Cell>Date</Table.Cell>
+                        <Table.Cell>{this.state.job.date}</Table.Cell>
+                    </Table.Row>
+
+                    <Table.Row>
+                        <Table.Cell>Applicants</Table.Cell>
+                        <Table.Cell>
+                        { typeof this.state.job.applicants == 'undefined' ? (
+                                    <div></div>
                                 ):(
-                                    <div>
-                                        {this.state.job.applicants.map((item, key) =>
-                                            <span className="applicants" key={key} >
-                                            {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
-                                            </span>
-                                        )}
-                                    </div>
-                                )}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <div>
+                                    {this.state.job.applicants.map((item, key) =>
+                                        <span className="applicants" key={key} >
+                                        {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                                        </span>
+                                    )}
+                                </div>
+                        )}
+                        </Table.Cell>
+                    </Table.Row>
 
-            </div>
+                </Table.Body>
+
+            </Table>
+
         )
     }
 }

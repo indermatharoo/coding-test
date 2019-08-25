@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { Table } from 'semantic-ui-react';
 
 import './css/Listing.css';
 
@@ -36,12 +37,47 @@ export default class Listing extends Component {
         ;        
     }
 
+    render() {
+        return(
+            <Table celled>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>#</Table.HeaderCell>
+                        <Table.HeaderCell>Title</Table.HeaderCell>
+                        <Table.HeaderCell>Location</Table.HeaderCell>
+                        <Table.HeaderCell>Date</Table.HeaderCell>
+                        <Table.HeaderCell>More Detail</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                    {this.state.jobs.map((item, key) => 
+                    <Table.Row key={key} >
+                        <Table.Cell>{key + 1}</Table.Cell>
+                        <Table.Cell>{item.title}</Table.Cell>
+                        <Table.Cell>{item.location.name}</Table.Cell>
+                        <Table.Cell>{item.date}</Table.Cell>
+                        <Table.Cell>
+                        <Route render={({history}) => (
+                            <button className="btn" type="button" onClick={() => { history.push('/detail/'+item.id)}}>
+                                More Info
+                            </button>
+                        )}
+                        />
+                        </Table.Cell>
+                    </Table.Row>
+                    )}
+                </Table.Body>
+
+            </Table>
+        )
+    }
     /**
     * Return the component view.
     *
     * @return JSX
     */
-    render() {
+    render_old() {
         return(
         <table className="table">
             <thead>
